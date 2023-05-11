@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card fondo text-white bg-dark border-4">
+            <div class="card-header">
+               <h2><center>Crea tu cuenta</center></h2>
+            </div>
+            <div class="card-body">
+                <form action="/users/signup" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-lg" name="Username" placeholder="Usuario"  value="{{Username}}" autofocus>
+                        <p></p>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control form-control-lg" name="Password" placeholder="Contraseña" value="{{Password}}">
+                        <p></p>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control form-control-lg" name="Confirm_Password" placeholder="Confirma tu contraseña" value="{{Confirm_Password}}">
+                        <p></p>
+                    </div>
+                    <div class="form-group d-grid gap-2 col-6 mx-auto">
+                        <button type="submit" class="btn btn-outline-light btn-floating m-1 btn-block btn-lg ">
+                            Registrar
+                        </button>
+                        <p></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

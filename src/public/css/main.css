@@ -26,5 +26,11 @@ footer{
 
 
 .fondo{
-    background-color: rgb(248, 205, 88);
+    border-color: rgba(193,242,255,255);
+    border-width: 5px;
+}
+
+.boton{
+    background-color: rgba(254,254,18,255);
+    color: black;
 }
