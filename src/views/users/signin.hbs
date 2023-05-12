@@ -1,27 +1,50 @@
-<div class="row">
-    <div class="col-md-8 mx-auto">
-        <div class="card fondo text-white bg-dark border-4">
-            <div class="card-header">
-               <h2><center>Iniciar Sesión</center></h2> 
-            </div>
-            <div class="card-body">
+<div class="container py-4 h-50">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg-6">
+              <div class="card-body p-md-5 mx-md-4">
+
+                <div class="text-center">
+                  <img class="img-fluid rounded-circle mb-4" src="https://media.discordapp.net/attachments/908798431064109098/1106227725141807176/image.png?width=412&height=385"
+                    style="width: 185px;" alt="logo">
+                  <h4 class="mt-1 mb-5 pb-1">The Cosmic Team</h4>
+                </div>
+
                 <form action="/users/signin" method="post">
-                    <div class="form-group">
-                        <input type="text" class="form-control form-control-lg" name="Username" placeholder="Usuario" autofocus>
-                        <p></p>
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control form-control-lg" name="Password" placeholder="Contraseña">
-                        <p></p>
-                    </div>
-                    <div class="form-group d-grid gap-2 col-6 mx-auto">
-                        <button type="submit" class="btn btn-outline-light btn-floating m-1 btn-block btn-lg ">
+                  <p>Ingresa con tu cuenta de administrador</p>
+
+                  <div class="form-outline mb-4">
+                    <input type="text" class="form-control form-control-lg" name="Username" autofocus>
+                    <label class="form-label" for="form2Example11">Username</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="password" class="form-control form-control-lg" name="Password">
+                    <label class="form-label" for="form2Example22">Password</label>
+                  </div>
+
+                  <div class="text-center pt-3 mb-5 pb-3">
+                    <button type="submit" class="btn btn-outline-dark btn-floating m-1 btn-block btn-lg ">
                             Ingresar
                         </button>
-                        <p></p>
-                    </div>
+                  </div>
+
                 </form>
+
+              </div>
             </div>
+            <div class="col-lg-6 d-flex align-items-center" style="background-color: rgba(193,242,255,255);">
+              <div class="px-3 py-4 p-md-5 mx-auto">
+                <h1 class="mb-4">¡Gracias!</h1>
+                <p class="medium mb-0">Un agradecimiento especial a todas las personas que han colaborado en la administración de The Cosmic Library, su dedicación y esfuerzo han sido clave para hacer de esta plataforma un espacio de aprendizaje y conocimiento para todos.</p>
+                <img class="mb-4" src="https://media.discordapp.net/attachments/908798431064109098/1106578293685239908/image-removebg-preview.png"
+                    style="width: 400px;" alt="gracias">
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>

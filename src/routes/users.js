@@ -1,6 +1,7 @@
 const router =require('express').Router();
 const User= require('../models/User');
 const passport =require('passport');
+const {isAuthenticated} = require('../helpers/auth');
 
 router.get('/users/signin',(req,res) =>{
     res.render('users/signin');
@@ -13,7 +14,7 @@ router.post('/users/signin',passport.authenticate('local',{
 }));
 
 
-router.get('/users/signup',(req,res) =>{
+router.get('/users/signup',isAuthenticated,(req,res) =>{
     res.render('users/signup');
 });
 
@@ -46,7 +47,7 @@ router.post('/users/signup', async (req,res) =>{
             newUser.Password = await newUser.encryptPassword(Password);
             await newUser.save();
             req.flash('success_msg','Has sido registrado')
-            res.redirect('/users/signin');
+            res.redirect('/');
         }
     }
 });
