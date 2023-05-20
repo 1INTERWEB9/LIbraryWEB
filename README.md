@@ -1,11 +1,11 @@
-# Proyecto Tienda de libros
+# Proyecto Tienda de libros ![](https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png)
 En este proyecto desarrollaremos un sistema que contiene las cuatro operaciones basicas
 que son(Crear, Leer, Actualizar y Eliminar) para una tienda de libros y en el cual hacemos
 uso de las tecnologias de Node.js, Express y MongoDB con Mongoose.
 
 Esto nos permitira administrar de manera eficiente los libros que se encuentren en la tienda
 
-## Explicación
+## Explicación General
 
 ### Crear
 Mediante esta funcion se permitiran agregar nuevos libros a la base de datos de la tienda.
@@ -23,7 +23,7 @@ garantiza mantener la informacion precisa y actualizada
 En caso de que un libro ya no se encuentre disponible en la tienda, esta función nos permitira
 eliminarlo de la base de datos
 
-# Instalación y uso
+# Instalación y uso local
 
 ## Primer paso 
 Una vez descargado el proyecto es necesario tener instalado Node.js y MongoDB
@@ -41,6 +41,10 @@ para poder usar los servicios de MongoDB por consola
 Mediante el comando
 `$ node index.js `
 desplegaremos la aplicacion 
+
+# Despliegue Directo en Servidor
+Puede acceder directamente a la aplicacion mediante el siguiente enlace
+https://libreria-zgg5.onrender.com/home Puede presentar caidas debido a que es un servicio gratuito 
 
 
 
