@@ -96,9 +96,11 @@ router.get('/books',isAuthenticatedWithLessOptions,async(req,res)=>{
 
 router.get('/books/edit/:id',isAuthenticated,async(req,res)=>{
     const book = await Books.findById(req.params.id).lean();
+    const Genre= await GenreDB.findOne({NameGenre:book.Genre}).lean()
+    const Publisher= await PublisherDB.findOne({NamePublisher:book.Publisher}).lean()
     const Genres=await GenreDB.find().lean().sort({Genre:'ascending'});
     const Publishers=await PublisherDB.find().lean().sort({Publisher:'ascending'});
-    res.render('books/edit_books',{book,Genres, Publishers });
+    res.render('books/edit_books',{book,Genres, Publishers, Genre, Publisher});
 });
 
 router.put('/books/edit-book/:id',isAuthenticated, async (req,res) =>{
@@ -113,5 +115,22 @@ router.delete('/books/delete/:id',isAuthenticated, async(req,res) =>{
     req.flash('success_msg','Libro eliminado satisfactoriamente');
     res.redirect('/books');
 });
+
+router.put('/books/edit-genre/:id',isAuthenticated, async (req,res) =>{
+    const {NameGenre,Description,NamePublisher,Adress,Celphone,Name,Author,Genre,Cover, Publisher,Summary} = req.body;
+    const aux = await GenreDB.findByIdAndUpdate(req.params.id,{NameGenre,Description}).lean();
+    await Books.updateMany({Genre:aux.NameGenre},{$set:{Genre:NameGenre}}).lean();
+    req.flash('success_msg','Género actualizado satisfactoriamente');
+    res.redirect('/books');
+});
+
+router.put('/books/edit-publisher/:id',isAuthenticated, async (req,res) =>{
+    const {NameGenre,Description,NamePublisher,Adress,Celphone,Name,Author,Genre,Cover, Publisher,Summary} = req.body;
+    const aux = await PublisherDB.findByIdAndUpdate(req.params.id,{NamePublisher,Adress,Celphone}).lean();
+    await Books.updateMany({Publisher:aux.NamePublisher},{$set:{Publisher:NamePublisher}}).lean();
+    req.flash('success_msg','Editorial actualizado satisfactoriamente');
+    res.redirect('/books');
+});
+
 
 module.exports = router;
