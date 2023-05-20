@@ -44,7 +44,7 @@ desplegaremos la aplicacion
 
 # Despliegue Directo en Servidor
 Puede acceder directamente a la aplicacion mediante el siguiente enlace
-https://libreria-zgg5.onrender.com/home Puede presentar caidas debidoa aque es un servicio gratuito 
+https://libreria-zgg5.onrender.com/home Puede presentar caidas debido a que es un servicio gratuito 
 
 
 
