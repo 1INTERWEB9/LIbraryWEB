@@ -8,7 +8,7 @@
             <form action="/books/genres/add" method="post" class="px-md-2">
 
               <div class="form-outline mb-4">
-                <input type="text" class="form-control form-control-lg" name="Genre" id="Genre" autofocus value="{{Genre}}"/>
+                <input type="text" class="form-control form-control-lg" name="NameGenre" id="NameGenre" autofocus value="{{NameGenre}}"/>
                 <label class="form-label" for="form3Example1q">Nombre</label>
               </div>
 
@@ -32,7 +32,7 @@
             <form action="/books/publishers/add" method="post" class="px-md-2">
 
               <div class="form-outline mb-4">
-                <input type="text" class="form-control form-control-lg" name="Publisher" id="Publisher" value="{{Publisher}}" autofocus/>
+                <input type="text" class="form-control form-control-lg" name="NamePublisher" id="NamePublisher" value="{{NamePublisher}}" autofocus/>
                 <label class="form-label" for="form3Example1q">Nombre</label>
               </div>
 
@@ -78,7 +78,7 @@
                 <div class="form-group mb-4">
                   <select class="form-select" name="Genre" id="Genre">
                           {{#each Genres}}
-                          <option value="{{Genre}}">{{Genre}}</option>
+                          <option value="{{NameGenre}}">{{NameGenre}}</option>
                           {{else}}
                           <option value="">No hay géneros literarios registrados</option>
                           {{/each}}
@@ -90,7 +90,7 @@
                 <div class="form-group mb-4">
                   <select class="form-select"  name="Publisher" id="Publisher">
                           {{#each Publishers}}
-                          <option value="{{Publisher}}">{{Publisher}}</option>
+                          <option value="{{NamePublisher}}">{{NamePublisher}}</option>
                           {{else}}
                           <option value="">No hay editoriales registradas</option>
                           {{/each}}

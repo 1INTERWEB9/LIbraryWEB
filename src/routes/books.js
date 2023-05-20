@@ -12,7 +12,7 @@ router.get('/books/add',isAuthenticated,async(req,res)=>{
 });
 
 router.post('/books/add',isAuthenticated,async(req,res)=>{
-    const {Genre,Description,Publisher,Adress,Celphone,Name,Author,NGenre,Cover, NPublisher,Summary} = req.body;
+    const {NameGenre,Description,NamePublisher,Adress,Celphone,Name,Author,Genre,Cover, Publisher,Summary} = req.body;
     const Book=await Books.findOne({Name: Name}).lean();
     const Img=await verifyImageURL(Cover);
     const errors = [];
@@ -27,9 +27,9 @@ router.post('/books/add',isAuthenticated,async(req,res)=>{
     
     if(errors.length>0)
     {
-        const Genres=await GenreDB.find().lean().sort({Genre:'ascending'});
+        const Genres=await GenreDB.find().lean().sort({NameGenre:'ascending'});
         const Publishers=await PublisherDB.find().lean().sort({Publisher:'ascending'});
-        res.render('books/create_books',{errors,Genres,Genre,Description,Publishers,Publisher,Adress,Celphone,Name,Author,NGenre,Cover, NPublisher,Summary})
+        res.render('books/create_books',{errors,Genres,NameGenre,Description,Publishers,NamePublisher,Adress,Celphone,Name,Author,Genre,Cover, Publisher,Summary})
     }
     else
     {
@@ -41,8 +41,8 @@ router.post('/books/add',isAuthenticated,async(req,res)=>{
 });
 
 router.post('/books/genres/add', async (req,res) =>{
-    const {Genre,Description,Publisher,Adress,Celphone,Name,Author,NGenre,Cover, NPublisher,Summary} = req.body;
-    const Genres=await GenreDB.findOne({Genre: Genre}).lean();
+    const {NameGenre,Description,NamePublisher,Adress,Celphone,Name,Author,Genre,Cover, Publisher,Summary} = req.body;
+    const Genres=await GenreDB.findOne({NameGenre: NameGenre}).lean();
     const errors = [];
     if(Genres)
     {
@@ -53,11 +53,11 @@ router.post('/books/genres/add', async (req,res) =>{
     {
         const Genres=await GenreDB.find().lean().sort({Genre:'ascending'});
         const Publishers=await PublisherDB.find().lean().sort({Publisher:'ascending'});
-        res.render('books/create_books',{errors,Genres,Genre,Description,Publishers,Publisher,Adress,Celphone,Name,Author,NGenre,Cover, NPublisher,Summary})
+        res.render('books/create_books',{errors,Genres,NameGenre,Description,Publishers,NamePublisher,Adress,Celphone,Name,Author,Genre,Cover, Publisher,Summary})
     }
     else
     {
-        const newGenre= new GenreDB({Genre,Description});
+        const newGenre= new GenreDB({NameGenre,Description});
         await newGenre.save();
         req.flash('success_msg','El nuevo género se registro exitosamente');
         res.redirect('/books/add');  
@@ -65,8 +65,8 @@ router.post('/books/genres/add', async (req,res) =>{
 });
 
 router.post('/books/publishers/add', async (req,res) =>{
-    const {Genre,Description,Publisher,Adress,Celphone,Name,Author,NGenre,Cover, NPublisher,Summary} = req.body;
-    const Publishers=await PublisherDB.findOne({Publisher: Publisher}).lean();
+    const {NameGenre,Description,NamePublisher,Adress,Celphone,Name,Author,Genre,Cover, Publisher,Summary} = req.body;
+    const Publishers=await PublisherDB.findOne({NamePublisher: NamePublisher}).lean();
     const errors = [];
     if(Publishers)
     {
@@ -77,11 +77,11 @@ router.post('/books/publishers/add', async (req,res) =>{
     {
         const Genres=await GenreDB.find().lean().sort({Genre:'ascending'});
         const Publishers=await PublisherDB.find().lean().sort({Publisher:'ascending'});
-        res.render('books/create_books',{errors,Genres,Genre,Description,Publishers,Publisher,Adress,Celphone,Name,Author,NGenre,Cover, NPublisher,Summary})
+        res.render('books/create_books',{errors,Genres,NameGenre,Description,Publishers,NamePublisher,Adress,Celphone,Name,Author,Genre,Cover, Publisher,Summary})
     }
     else
     {
-        const newPublisher= new PublisherDB({Publisher,Adress,Celphone});
+        const newPublisher= new PublisherDB({NamePublisher,Adress,Celphone});
         await newPublisher.save();
         req.flash('success_msg','La nueva editorial se registro exitosamente');
         res.redirect('/books/add');  
@@ -98,7 +98,20 @@ router.get('/books/edit/:id',isAuthenticated,async(req,res)=>{
     const book = await Books.findById(req.params.id).lean();
     const Genres=await GenreDB.find().lean().sort({Genre:'ascending'});
     const Publishers=await PublisherDB.find().lean().sort({Publisher:'ascending'});
-    res.render('employees/edit_employees',{book,Genres, Publishers });
+    res.render('books/edit_books',{book,Genres, Publishers });
+});
+
+router.put('/books/edit-book/:id',isAuthenticated, async (req,res) =>{
+    const {NameGenre,Description,NamePublisher,Adress,Celphone,Name,Author,Genre,Cover, Publisher,Summary} = req.body;
+    await Books.findByIdAndUpdate(req.params.id,{Name,Author,Genre,Cover, Publisher,Summary}).lean()
+    req.flash('success_msg','Libro actualizado satisfactoriamente');
+    res.redirect('/books');
+});
+
+router.delete('/books/delete/:id',isAuthenticated, async(req,res) =>{
+    await Books.findByIdAndDelete(req.params.id).lean();
+    req.flash('success_msg','Libro eliminado satisfactoriamente');
+    res.redirect('/books');
 });
 
 module.exports = router;
