@@ -1,13 +1,13 @@
 <div class="row d-flex justify-content-center align-items-center h-100 mb-4">
     {{#each book}}
     <div class="col-lg-2 col-xl-2">
-        <div class="card text-white bg-dark">
+        <div class="card text-white bg-dark mb-4">
             <p></p>
             <img src="{{Cover}}" class="card-img-top mx-auto" alt="..." style="width: 150px; height: 150px">
             <div class="card-body">
                 <div class="text-center">
-                    <h2 class="card-title">{{Name}}</h2>
-                    <p class="card-text">{{Summary}}</p>
+                    <h5 class="card-title">{{Name}}</h5>
+                    <p class="card-text">{{Author}}</p>
                     <a href="/books/{{_id}}" class="btn btn-outline-light btn-floating m-1 btn-block btn-lg">Explorar</a>
                 </div>
                 <p></p>
