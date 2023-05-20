@@ -1,0 +1,32 @@
+
+<div class="card text-white bg-dark">
+    <section>
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5 align-items-center">
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{book.Cover}}" alt="..." /></div>
+                    <div class="col-md-6">
+                        <div class="small mb-1">{{book._id}}</div>
+                        <h1 class="display-5 fw-bolder">{{book.Name}}</h1>
+                        <div class="fs-5 mb-5">
+                            <span>{{book.Author}}</span>
+                        </div>
+                        <p class="lead">{{book.Summary}}</p>
+                        <div class="fs-5 mb-5">
+                            <span>Genero: {{book.Genre}}</span>
+                            <p></p>
+                            <span>Editorial: {{book.Publisher}}</span>
+                        </div>
+                        <form action="/books">
+                            <button class="btn btn-outline-light btn-floating m-1 btn-block btn-lg" type="submit">
+                                <i class="bi-cart-fill me-1"></i>
+                                Volver al menu principal
+                            </button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+</div>
+        
+        
