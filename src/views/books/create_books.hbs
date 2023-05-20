@@ -1,64 +1,115 @@
 <div class="container py-1 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100 mb-4">
       <div class="col-lg-8 col-xl-6">
         <div class="card text-white bg-dark">
-          <p></p>
-          <img src="https://media.discordapp.net/attachments/908798431064109098/1109131508859555840/rosalina_and_luma_mario_and_1_more_drawn_by_chocomiru__sample-f62702bc24b9199d09d4304be25273ce.jpg?width=419&height=385"
-            class="rounded w-50 mx-auto" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
-            alt="Sample photo">
           <div class="card-body p-4 p-md-5">
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Nuevo libro</h3>
+            <h3 class="mb-2 pb-1 pb-md-0 mb-md-5 px-md-2">Nuevo género</h3>
 
-            <form class="px-md-2">
+            <form action="/books/genres/add" method="post" class="px-md-2">
 
               <div class="form-outline mb-4">
-                <input type="text" id="form3Example1q" class="form-control" />
+                <input type="text" class="form-control form-control-lg" name="Genre" id="Genre" autofocus value="{{Genre}}"/>
                 <label class="form-label" for="form3Example1q">Nombre</label>
               </div>
 
-              <div class="form-group">
-                <select class="select" name="NombreRol" id="NombreRol">
-                        {{#if Genres}}
-                        <option value="">Cargo o Rol de Trabajo</option>
-                        {{/if}}
-                        {{#each Genres}}
-                        <option value="{{Genre}}">{{Genre}}</option>
-                        {{else}}
-                        <option value="">No hay roles de trabajo registrados</option>
-                        {{/each}}
-                    </select>
+              <div class="form-outline">
+                    <textarea class="form-control form-control-lg" name="Description" id="Description" rows="2">{{Description}}</textarea>
+                    <label class="form-label" for="form3Example1w">Descripción</label>
               </div>
-                  
-
-                
-
-              <div class="mb-4">
-
-                <select class="select">
-                  <option value="1" disabled>Class</option>
-                  <option value="2">Class 1</option>
-                  <option value="3">Class 2</option>
-                  <option value="4">Class 3</option>
-                </select>
-
-              </div>
-
-              <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
-                <div class="col-md-6">
-
-                  <div class="form-outline">
-                    <input type="text" id="form3Example1w" class="form-control" />
-                    <label class="form-label" for="form3Example1w">Registration code</label>
-                  </div>
-
-                </div>
-              </div>
-
-              <button type="submit" class="btn btn-success btn-lg mb-1">Submit</button>
+                <p></p>
+              <button type="submit" class="btn btn-outline-light btn-floating m-1 btn-block btn-lg mx-auto ">Registrar</button>
 
             </form>
 
           </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-xl-6">
+        <div class="card text-white bg-dark">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-2 pb-1 pb-md-0 mb-md-5 px-md-2">Nueva editorial</h3>
+
+            <form action="/books/publishers/add" method="post" class="px-md-2">
+
+              <div class="form-outline mb-4">
+                <input type="text" class="form-control form-control-lg" name="Publisher" id="Publisher" value="{{Publisher}}" autofocus/>
+                <label class="form-label" for="form3Example1q">Nombre</label>
+              </div>
+
+              <div class="form-outline mb-4">
+                    <input type="text" class="form-control form-control-lg" name="Adress" id="Adress" value="{{Adress}}" autofocus/>
+                    <label class="form-label" for="form3Example1w">Dirección</label>
+              </div>
+
+              <div class="form-outline mb-4">
+                    <input type="number" min="3" step="1" oninput="validity.valid||(value='');" name="Celphone" class="form-control form-control-lg"  value="{{Celphone}}">
+                    <label class="form-label" for="form3Example1w">Número de contacto</label>
+                </div>
+                <p></p>
+              <button type="submit" class="btn btn-outline-light btn-floating m-1 btn-block btn-lg mx-auto ">Registrar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p></p>
+    <div class="row d-flex justify-content-center  align-items-center h-80">
+      <div class="card text-white bg-dark">
+        <div class="card-body p-4 p-md-5">
+          <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Nuevo libro</h3>
+          <form action="/books/add" method="post" class="px-md-2">
+            <div class="row g-2">
+              <div class="col-md">
+                <div class="form-outline mb-4">
+                  <input type="text" class="form-control form-control-lg" name="Name" id="Name" value="{{Name}}" />
+                  <label class="form-label" for="form3Example1q">Nombre</label>
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-outline mb-4">
+                  <input type="text" class="form-control form-control-lg" name="Author" id="Author" value="{{Author}}" />
+                  <label class="form-label" for="form3Example1q">Autor(a)</label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row g-2">
+              <div class="col-md">
+                <div class="form-group mb-4">
+                  <select class="form-select" name="Genre" id="Genre">
+                          {{#each Genres}}
+                          <option value="{{Genre}}">{{Genre}}</option>
+                          {{else}}
+                          <option value="">No hay géneros literarios registrados</option>
+                          {{/each}}
+                  </select>
+                  <label class="form-label" for="form3Example1q">Género literario</label>
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-group mb-4">
+                  <select class="form-select"  name="Publisher" id="Publisher">
+                          {{#each Publishers}}
+                          <option value="{{Publisher}}">{{Publisher}}</option>
+                          {{else}}
+                          <option value="">No hay editoriales registradas</option>
+                          {{/each}}
+                  </select>
+                  <label class="form-label" for="form3Example1q">Editorial</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-outline mb-4">
+                  <textarea class="form-control form-control-lg" name="Summary" id="Summary" rows="2"></textarea>
+                  <label class="form-label" for="form3Example1w">Sinopsis</label>
+            </div>   
+            <div class="form-outline mb-4">
+                  <input type="text" class="form-control form-control-lg" name="Cover" id="Cover" value="{{Cover}}" />
+                  <label class="form-label" for="form3Example1q">URL de la imagen que actuara como portada</label>
+            </div>
+            <button type="submit" class="btn btn-outline-light btn-floating m-1 btn-block btn-lg mx-auto ">Registrar</button>
+          </form>
+
         </div>
       </div>
     </div>
