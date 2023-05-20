@@ -1,4 +1,4 @@
-# Proyecto Tienda de libros
+# Proyecto Tienda de libros ![](https://pandao.github.io/editor.md/images/logos/editormd-logo-180x180.png)
 En este proyecto desarrollaremos un sistema que contiene las cuatro operaciones basicas
 que son(Crear, Leer, Actualizar y Eliminar) para una tienda de libros y en el cual hacemos
 uso de las tecnologias de Node.js, Express y MongoDB con Mongoose.
