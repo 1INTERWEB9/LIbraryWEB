@@ -42,7 +42,7 @@ A continuación se presenta una tabla con las versiones específicas de cada mó
 |verify-image-url|1.3.0|
 
 
-
+La documentación completa de nuestro proyecto de la Biblioteca Online se encuentra disponible en la sección de [Wiki](https://github.com/1INTERWEB9/LIbraryWEB/wiki) del repositorio en GitHub. En esta sección, encontrarás información detallada sobre la configuración, el funcionamiento y las diferentes funcionalidades implementadas en nuestra aplicación. Te recomendamos visitar la sección de Wiki para acceder a esta valiosa fuente de información que te guiará en el uso y comprensión de nuestro proyecto.
 
 
 
