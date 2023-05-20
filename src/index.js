@@ -13,7 +13,8 @@ require('./database');
 require('./config/passport');
 
 //Settings
-app.set('port',3000);
+app.listen(process.env.PORT || 3000);
+console.log('Server en el puerto ',process.env.PORT || 3000);
 app.set('views', path.join(__dirname,'views'));
 app.engine('.hbs',exphbs.engine({
     defaultLayout: 'main.hbs',
