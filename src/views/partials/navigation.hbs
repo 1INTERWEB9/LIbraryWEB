@@ -14,17 +14,19 @@
             <a class="nav-link" href="/about"><i class="fa-solid fa-circle-info" style="color: rgba(193,242,255,255);"></i> Acerca de</a>
             </li>
         </ul>
-        {{#if user}}
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
             <a class="nav-link" href="/books"><i class="fa-solid fa-book" style="color: rgba(193,242,255,255);"></i> Libros</a>
             </li>
+        </ul>
+        {{#if user}}
+        <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="/books" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa-solid fa-users-gear" style="color: rgba(193,242,255,255);"></i> Administración</a>
             </a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/job-roles">Agregar Libros</a></li>
+                <li><a class="dropdown-item" href="/books/add">Agregar Libros</a></li>
                 <li><a class="dropdown-item" href="/job-roles/add">Registrar un nuevo rol</a></li>
             </ul>
             </li>

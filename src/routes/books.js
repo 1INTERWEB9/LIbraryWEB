@@ -1,9 +1,8 @@
 const router =require('express').Router();
-const Book = require('../models/Book');
+const Books = require('../models/Book');
 const GenreDB= require('../models/Genre')
 const PublisherDB= require('../models/Publisher')
-const Books= require('../models/Book')
-const {isAuthenticated} = require('../helpers/auth');
+const {isAuthenticated, isAuthenticatedWithLessOptions} = require('../helpers/auth');
 const { verifyImageURL } = require('verify-image-url');
 
 router.get('/books/add',isAuthenticated,async(req,res)=>{
@@ -89,9 +88,17 @@ router.post('/books/publishers/add', async (req,res) =>{
     }
 });
 
-router.get('/books',async(req,res)=>{
+router.get('/books',isAuthenticatedWithLessOptions,async(req,res)=>{
     const book = await Books.find().lean().sort({Name:'ascending'});
-    res.render('books/view_books',{book})
+    const user= res.locals.isAuthenticated
+    res.render('books/view_books',{book,user})
+});
+
+router.get('/books/edit/:id',isAuthenticated,async(req,res)=>{
+    const book = await Books.findById(req.params.id).lean();
+    const Genres=await GenreDB.find().lean().sort({Genre:'ascending'});
+    const Publishers=await PublisherDB.find().lean().sort({Publisher:'ascending'});
+    res.render('employees/edit_employees',{book,Genres, Publishers });
 });
 
 module.exports = router;
